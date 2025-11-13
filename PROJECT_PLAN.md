@@ -8,11 +8,11 @@ This document outlines the detailed tasks for the proof-of-concept implementatio
 
 **Goal:** Define the core algorithms and simulate their performance and energy consumption before implementation.
 
-- [ ] **Task 0.1: Define Core Specifications**
-  - [ ] Define the precise mathematical formula for the Energy Participation Score (EPS).
-  - [ ] Specify the exact data structure for the Proof-of-Task (PoT), including the cryptographic binding mechanism.
-  - [ ] Specify the data structure for the Proof-of-Availability (PoA) heartbeat.
-  - [ ] Define the binary format for microblocks, including headers and payload.
+- [x] **Task 0.1: Define Core Specifications**
+  - [x] Define the precise mathematical formula for the Energy Participation Score (EPS).
+  - [x] Specify the exact data structure for the Proof-of-Task (PoT), including the cryptographic binding mechanism.
+  - [x] Specify the data structure for the Proof-of-Availability (PoA) heartbeat.
+  - [x] Define the binary format for microblocks, including headers and payload.
 
 - [ ] **Task 0.2: Develop Simulation Environment**
   - [ ] Choose a simulation framework (e.g., Python with SimPy).
@@ -35,18 +35,18 @@ This document outlines the detailed tasks for the proof-of-concept implementatio
 
 **Goal:** Build the core components for the mobile client and the backend coordinator.
 
-- [ ] **Task 1.1: Mobile SDK (Android - Kotlin)**
-  - [ ] Set up the base Android project structure.
-  - [ ] Implement a **Telemetry Module** to collect and sign device data (battery, CPU, network).
-  - [ ] Implement a **Task Execution Module** to handle placeholder AI tasks.
-  - [ ] Implement a **Proof Generation Module** to create PoT receipts and PoA heartbeats.
-  - [ ] Implement a **Network Client** (gRPC or REST) to communicate with the coordinator.
+- [x] **Task 1.1: Mobile SDK (Android - Kotlin)**
+  - [x] Set up the base Android project structure.
+  - [x] Implement a **Telemetry Module** to collect and sign device data (battery, CPU, network).
+  - [x] Implement a **Task Execution Module** to handle placeholder AI tasks.
+  - [x] Implement a **Proof Generation Module** to create PoT receipts and PoA heartbeats.
+  - [x] Implement a **Network Client** (gRPC or REST) to communicate with the coordinator.
 
-- [ ] **Task 1.2: Microblock Coordinator (Node.js or Go)**
-  - [ ] Set up the base backend project structure.
-  - [ ] Implement API endpoints to receive telemetry and proofs from the mobile SDK.
-  - [ ] Implement the **Device Selection Engine** based on the EPS specification.
-  - [ ] Implement the **Task Assignment Logic** to distribute tasks to selected devices.
+- [x] **Task 1.2: Microblock Coordinator (Node.js or Go)**
+  - [x] Set up the base backend project structure.
+  - [x] Implement API endpoints to receive telemetry and proofs from the mobile SDK.
+  - [x] Implement the **Device Selection Engine** based on the EPS specification.
+  - [x] Implement the **Task Assignment Logic** to distribute tasks to selected devices.
   - [ ] Implement the **Microblock Formation Service** to collect verified receipts and create microblocks.
 
 ---

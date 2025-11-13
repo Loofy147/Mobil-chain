@@ -378,7 +378,7 @@ Final note
 
 I integrated these changes into the canvas document so the draft is now focused on what is both patentable and investable. Read the added sections for the exact claim language, pilot metrics, investor memo, and GTM plan.
 
-If you want immediate next steps I can do now (select one):
+immediate next steps  (select one):
 
 generate a compact investor one-page from the memo I added (text output in chat),
 
@@ -389,13 +389,13 @@ produce the pitch-deck slides as a downloadable PPTX (I will produce slides code
 run a prioritized prior-art search checklist (I will produce the search queries & domains to run).
 
 
-Pick one and I will generate it here in full.
+Pick one and generate it  in full.
 
 You're right to call it out — and I changed the document to reflect that blunt feedback.
 
 I appended a focused “Response to critique” section to the patent draft that (without fluff) does three things: 1) narrows and hardens the patentable primitives, 2) turns product features into distinct vertical plays and UX promises, and 3) adds investor-facing evidence, pilot metrics, and a prosecution/GTM checklist.
 
-Tell me one item from the four immediate options I listed at the bottom of the new section and I’ll generate it right here now (fully worked-out):
+generate it right now (fully worked-out):
 • investor one-pager,
 • PoC SDK + coordinator scaffold,
 • pitch-deck slides (PPTX), or

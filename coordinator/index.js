@@ -13,6 +13,20 @@ app.post('/telemetry', (req, res) => {
   res.sendStatus(200);
 });
 
+app.get('/task', (req, res) => {
+  const task = {
+    id: 'task-123',
+    data: 'process_image.jpg'
+  };
+  console.log('Assigning task:', task);
+  res.json(task);
+});
+
+app.post('/proof', (req, res) => {
+  console.log('Received proof:', req.body);
+  res.sendStatus(200);
+});
+
 app.listen(port, () => {
   console.log(`Coordinator listening at http://localhost:${port}`);
 });

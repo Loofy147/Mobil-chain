@@ -19,10 +19,30 @@ class MainActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                NetworkClient.telemetryService.sendTelemetry(telemetryData)
+                // 1. Send Telemetry
+                NetworkClient.apiService.sendTelemetry(telemetryData)
                 Log.d("MainActivity", "Telemetry data sent successfully")
+
+                // 2. Get Task
+                val task = NetworkClient.apiService.getTask()
+                Log.d("MainActivity", "Received task: $task")
+
+                // 3. Execute Task
+                val taskExecutor = TaskExecutor()
+                val taskResult = taskExecutor.executeTask(task)
+                Log.d("MainActivity", "Executed task: $taskResult")
+
+                // 4. Generate Proof
+                val proofGenerator = ProofGenerator("device-abc") // Placeholder device ID
+                val proof = proofGenerator.generateProof(taskResult)
+                Log.d("MainActivity", "Generated proof: $proof")
+
+                // 5. Submit Proof
+                NetworkClient.apiService.submitProof(proof)
+                Log.d("MainActivity", "Proof submitted successfully")
+
             } catch (e: Exception) {
-                Log.e("MainActivity", "Error sending telemetry data", e)
+                Log.e("MainActivity", "Error in task-proof loop", e)
             }
         }
     }

@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         val telemetryManager = TelemetryManager(this)
         val telemetryData = telemetryManager.getTelemetryData()
+        val deviceId = telemetryData.deviceId
 
         Log.d("MainActivity", "Telemetry Data: $telemetryData")
 
@@ -23,8 +24,8 @@ class MainActivity : AppCompatActivity() {
                 NetworkClient.apiService.sendTelemetry(telemetryData)
                 Log.d("MainActivity", "Telemetry data sent successfully")
 
-                // 2. Get Task
-                val task = NetworkClient.apiService.getTask()
+                // 2. Request Task
+                val task = NetworkClient.apiService.requestTask(TaskRequest(deviceId))
                 Log.d("MainActivity", "Received task: $task")
 
                 // 3. Execute Task
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("MainActivity", "Executed task: $taskResult")
 
                 // 4. Generate Proof
-                val proofGenerator = ProofGenerator("device-abc") // Placeholder device ID
+                val proofGenerator = ProofGenerator(deviceId)
                 val proof = proofGenerator.generateProof(taskResult)
                 Log.d("MainActivity", "Generated proof: $proof")
 

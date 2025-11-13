@@ -5,14 +5,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-import retrofit2.http.GET
+data class TaskRequest(val deviceId: String)
 
 interface ApiService {
     @POST("telemetry")
     suspend fun sendTelemetry(@Body telemetryData: TelemetryData)
 
-    @GET("task")
-    suspend fun getTask(): Task
+    @POST("task")
+    suspend fun requestTask(@Body request: TaskRequest): Task
 
     @POST("proof")
     suspend fun submitProof(@Body proof: ProofOfTask)

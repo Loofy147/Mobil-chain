@@ -6,6 +6,7 @@ import android.content.IntentFilter
 import android.os.BatteryManager
 
 data class TelemetryData(
+    val deviceId: String,
     val batteryPercentage: Float,
     val isCharging: Boolean
 )
@@ -13,6 +14,7 @@ data class TelemetryData(
 class TelemetryManager(private val context: Context) {
 
     fun getTelemetryData(): TelemetryData {
+        val deviceId = DeviceManager.getDeviceId(context)
         val batteryStatus: Intent? = IntentFilter(Intent.ACTION_BATTERY_CHANGED).let { ifilter ->
             context.registerReceiver(null, ifilter)
         }
@@ -24,6 +26,6 @@ class TelemetryManager(private val context: Context) {
         val status: Int = batteryStatus?.getIntExtra(BatteryManager.EXTRA_STATUS, -1) ?: -1
         val isCharging: Boolean = status == BatteryManager.BATTERY_STATUS_CHARGING || status == BatteryManager.BATTERY_STATUS_FULL
 
-        return TelemetryData(batteryPct, isCharging)
+        return TelemetryData(deviceId, batteryPct, isCharging)
     }
 }

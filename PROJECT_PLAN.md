@@ -1,100 +1,50 @@
-# AEAMC Project Plan (MVP)
+# Project Plan: AEAMC 90-Day Sprint
 
-This document outlines the detailed tasks for the proof-of-concept implementation of the Adaptive Energy-Aware Mobile Consensus (AEAMC) project, based on the MVP plan in the patent draft.
+This document outlines the 90-day plan to move the AEAMC project from a proof-of-concept to an investable business, based on the findings from the "Comprehensive Repository Analysis & Critical Examination".
 
----
+## Phase 1: Complete the Core (Weeks 1-4)
 
-## Phase 0: Specification & Simulation
+### Week 1: Finish the Coordinator
 
-**Goal:** Define the core algorithms and simulate their performance and energy consumption before implementation.
+**File**: `coordinator/microblock_service.js`
 
-- [x] **Task 0.1: Define Core Specifications**
-  - [x] Define the precise mathematical formula for the Energy Participation Score (EPS).
-  - [x] Specify the exact data structure for the Proof-of-Task (PoT), including the cryptographic binding mechanism.
-  - [x] Specify the data structure for the Proof-of-Availability (PoA) heartbeat.
-  - [x] Define the binary format for microblocks, including headers and payload.
+- Implement proof verification, microblock formation, and Ethereum anchoring.
 
-- [ ] **Task 0.2: Develop Simulation Environment**
-  - [ ] Choose a simulation framework (e.g., Python with SimPy).
-  - [ ] Create models for mobile device properties (battery, CPU, network).
-  - [ ] Create a model for the network topology and message passing.
+### Week 2: Complete Android Battery Monitoring
 
-- [ ] **Task 0.3: Implement and Run Simulations**
-  - [ ] Implement the device selection function based on the EPS formula.
-  - [ ] Simulate the process of task assignment, PoT/PoA generation, and microblock formation.
-  - [ ] Design and run simulations for various workloads (e.g., high/low task frequency, varying number of devices).
-  - [ ] Collect data on simulated energy consumption, task throughput, and network latency.
+**File**: `sdk/android/app/src/main/java/com/example/aeamc/BatteryMonitor.kt`
 
-- [ ] **Task 0.4: Analyze and Refine**
-  - [ ] Analyze simulation results to identify bottlenecks or inefficiencies.
-  - [ ] Refine the specifications from Task 0.1 based on the findings.
+- Implement real-world battery consumption metrics to validate energy savings claims.
 
----
+### Week 3: Implement Real AI Workloads
 
-## Phase 1: Mobile SDK + Coordinator
+**File**: `sdk/android/app/src/main/java/com/example/aeamc/RealWorkloadExecutor.kt`
 
-**Goal:** Build the core components for the mobile client and the backend coordinator.
+- Replace simulated tasks with actual, resource-intensive AI workloads.
 
-- [x] **Task 1.1: Mobile SDK (Android - Kotlin)**
-  - [x] Set up the base Android project structure.
-  - [x] Implement a **Telemetry Module** to collect and sign device data (battery, CPU, network).
-  - [x] Implement a **Task Execution Module** to handle placeholder AI tasks.
-  - [x] Implement a **Proof Generation Module** to create PoT receipts and PoA heartbeats.
-  - [x] Implement a **Network Client** (gRPC or REST) to communicate with the coordinator.
+### Week 4: Ethereum Anchoring Smart Contract
 
-- [x] **Task 1.2: Microblock Coordinator (Node.js or Go)**
-  - [x] Set up the base backend project structure.
-  - [x] Implement API endpoints to receive telemetry and proofs from the mobile SDK.
-  - [x] Implement the **Device Selection Engine** based on the EPS specification.
-  - [x] Implement the **Task Assignment Logic** to distribute tasks to selected devices.
-  - [ ] Implement the **Microblock Formation Service** to collect verified receipts and create microblocks.
+**File**: `contracts/MicroblockAnchor.sol`
 
----
+- Implement the smart contract for anchoring microblock digests to the Ethereum blockchain.
 
-## Phase 2: Verification & Anchoring
+## Phase 2: Run the Pilot (Weeks 5-8)
 
-**Goal:** Implement the mechanism to verify tasks and ensure long-term immutability.
+### Week 5: Recruit 50 Devices
 
-- [ ] **Task 2.1: Implement Spot-Check Service**
-  - [ ] Design and build a service that can receive a PoT and perform a randomized spot-check verification.
-  - [ ] Integrate this service into the coordinator's workflow before including receipts in a microblock.
+- Recruit 50 participants for the pilot test.
 
-- [ ] **Task 2.2: Implement Anchoring Adapter**
-  - [ ] Set up a connection to an Ethereum testnet (e.g., Sepolia).
-  - [ ] Create a smart contract to store and verify microblock digests.
-  - [ ] Implement an **Anchoring Service** in the coordinator that periodically sends microblock digests to the smart contract.
+### Week 6-7: Collect Data
 
----
+- Collect performance, energy, and reliability data from the 50 devices.
 
-## Phase 3: Payments & Channels
+### Week 8: Analyze & Report
 
-**Goal:** Integrate a micropayment system for fair compensation.
+- Analyze the collected data and create a technical report.
 
-- [ ] **Task 3.1: Research and Integration**
-  - [ ] Research and select a suitable Layer-2 or state channel solution for micropayments.
-  - [ ] Integrate the selected payment solution's SDK into the mobile client and coordinator.
+## Phase 3: Competitive Differentiation (Weeks 9-12)
 
-- [ ] **Task 3.2: Implement Payment Logic**
-  - [ ] Implement logic in the coordinator to batch and settle payments based on verified receipts in microblocks.
-  - [ ] Implement a dispute resolution mechanism for payment challenges.
+### Task: Benchmark Against Alternatives
 
----
-
-## Phase 4: Field Beta & Metrics
-
-**Goal:** Deploy the system to a small group of users and gather real-world performance data.
-
-- [ ] **Task 4.1: Prepare for Deployment**
-  - [ ] Build instrumentation into the mobile SDK to log battery drain, latency, and throughput.
-  - [ ] Create a simple dashboard to visualize key network metrics.
-  - [ ] Prepare deployment packages for the Android app and the coordinator.
-
-- [ ] **Task 4.2: Recruit and Deploy**
-  - [ ] Recruit a small group of volunteers for the beta test.
-  - [ ] Deploy the coordinator to a cloud service.
-  - [ ] Distribute the Android app to the volunteers.
-
-- [ ] **Task 4.3: Collect and Analyze**
-  - [ ] Monitor the network and collect performance data over a set period.
-  - [ ] Analyze the real-world metrics to validate the energy-saving and performance claims.
-  - [ ] Gather feedback from beta testers.
+- Benchmark AEAMC against competitors like BOINC, TensorFlow Federated, and AWS Lambda.
+- Create a comparison matrix to highlight AEAMC's advantages.

@@ -33,14 +33,10 @@ function transformNetwork(latency) {
 }
 
 function calculateEPS(telemetry) {
-    // For now, we only have battery data.
-    // We will add the others as the client provides them.
     const batteryScore = WEIGHTS.battery * transformBattery(telemetry.batteryPercentage);
     const chargingScore = WEIGHTS.charging * transformCharging(telemetry.isCharging);
-
-    // Placeholder scores for metrics not yet implemented client-side
-    const temperatureScore = WEIGHTS.temperature * transformTemperature(40); // Assume 40C
-    const networkScore = WEIGHTS.network * transformNetwork(100); // Assume 100ms
+    const temperatureScore = WEIGHTS.temperature * transformTemperature(telemetry.cpuTemperature);
+    const networkScore = WEIGHTS.network * transformNetwork(telemetry.networkLatency);
 
     const eps = batteryScore + chargingScore + temperatureScore + networkScore;
 
